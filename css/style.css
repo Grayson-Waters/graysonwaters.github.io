@@ -690,36 +690,68 @@
 					font-size: 1.5em;
 				}
 
-		ul.icons-grid {
-			list-style: none;
-			padding: 0;
-			position: relative;
-		}
-
-			ul.icons-grid li {
-				display: block;
-				float: left;
-				padding: 3em 0;
-				width: 50%;
-			}
-
-				ul.icons-grid li h3 {
+				/* =========================================================
+				Modern Responsive Icons Grid (Skills, Tools, Languages)
+				========================================================= */
+				ul.icons-grid {
+					display: grid;
+					grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+					gap: 2rem 2.5rem; /* row-gap / column-gap */
+					list-style: none;
 					margin: 0;
+					padding: 0;
+					text-align: center;
+					align-items: start;
+					justify-items: center;
 				}
 
-				ul.icons-grid li:nth-child(2n + 1) {
-					box-shadow: inset -1px 0 0 0 #dddddd, 1px 0 0 0 #dddddd;
+				/* Individual skill/tool boxes */
+				ul.icons-grid li {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					gap: 0.6rem;
+					background: #fff; /* matches Highlights’ clean sections */
+					border: 3px solid #e5e5e5;
+					border-radius: 8px;
+					box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+					padding: 1.5rem 1rem;
+					box-sizing: border-box;
+					transition: transform 0.2s ease, box-shadow 0.2s ease;
+					min-height: 120px;
 				}
 
-				ul.icons-grid li:nth-child(2n + 3):before {
-					background: #dddddd;
-					content: '';
-					display: block;
-					height: 2px;
-					margin-top: -3em;
-					position: absolute;
-					width: 100%;
+				/* Hover effect for interactivity */
+				ul.icons-grid li:hover {
+					transform: translateY(-3px);
+					box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+					border-color: #d0d0d0;
 				}
+
+				/* Icon style (font awesome / template icons) */
+				ul.icons-grid .icon {
+					font-size: 2rem;
+					line-height: 1;
+					color: #7f7f7f; /* neutral tone from theme */
+					margin-bottom: 0.3rem;
+				}
+
+				/* Headings inside boxes */
+				ul.icons-grid h3 {
+					margin: 0;
+					font-size: 1.05rem;
+					font-weight: 600;
+					color: #444;
+				}
+
+				/* Paragraph text inside boxes */
+				ul.icons-grid p {
+					margin: 0;
+					line-height: 1.4;
+					color: #666;
+					font-size: 0.95rem;
+				}
+
 
 			ul.icons-grid:after {
 				clear: both;
@@ -727,16 +759,92 @@
 				display: block;
 			}
 
-		ul.actions {
-			cursor: default;
+		/* =========================================================
+		Projects Section
+		========================================================= */
+		ul.projects-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+			gap: 2rem;
 			list-style: none;
-			padding-left: 0;
+			margin: 0;
+			padding: 0;
+			align-items: stretch;
+		}
+
+		ul.projects-grid li {
+			display: flex;             /* activates flexbox inside each card */
+			flex-direction: column;    /* stacks content vertically */
+			justify-content: flex-start;
+			background: #fff;
+			border: none;
+			border-radius: 10px;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+			padding: 2rem 1.5rem;
+			text-align: left;
+			height: 100%;              /* allows vertical stretching */
+			transition: transform 0.2s ease, box-shadow 0.2s ease;
+		}
+		
+		ul.projects-grid li:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+		}
+
+		/* Project titles */
+		ul.projects-grid h3 {
+			margin-top: 0;
+			font-size: 1.3rem;
+			color: #444;
+		}
+
+		/* Descriptions */
+		ul.projects-grid p {
+			color: #666;
+			line-height: 1.5;
+			font-size: 0.95rem;
+			margin-bottom: 1.5rem;
+		}
+
+		/* Buttons inside projects */
+		ul.projects-grid .actions {
+			margin-top: auto;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.75rem;
+			justify-content: flex-start;
+		}
+
+		ul.projects-grid .button {
+			padding: 0.6em 1.6em;
+		}
+
+		/* Alt (secondary) button style */
+		ul.projects-grid .button.alt {
+			background: transparent;
+			border: 1px solid #ccc;
+			color: #444;
+		}
+
+		ul.projects-grid .button.alt:hover {
+			border-color: #999;
+			color: #222;
+		}
+
+		ul.actions {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center; /* center buttons horizontally */
+			align-items: center;     /* align button heights */
+			gap: 1.5rem 1rem;               /* even spacing between buttons */
+			list-style: none;
+			margin: 0 auto 2em auto; /* center container and give bottom space */
+			padding: 0;
 		}
 
 			ul.actions li {
-				display: inline-block;
-				padding: 0 1em 0 0;
-				vertical-align: middle;
+				display: flex;
+				margin: 0;
 			}
 
 				ul.actions li:last-child {
@@ -1169,8 +1277,8 @@
 /* Footer */
 
 	#footer {
-		min-height: 100vh;
-		padding: 0 0 12em 0;
+		min-height: 0vh;
+		padding: 3em 0 2em 0;
 		position: relative;
 		text-align: center;
 	}
@@ -1220,3 +1328,5 @@
 						margin-left: 0;
 						padding-left: 0;
 					}
+
+
